@@ -16,7 +16,7 @@ class MyImageNode:
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "process_image"
 
-    CATEGORY = "我的节点/图像"
+    CATEGORY = "donyan"
 
     def process_image(self, image):
         # 在这个示例中，我们只是将输入的图像直接返回。

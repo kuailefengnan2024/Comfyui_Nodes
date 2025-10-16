@@ -39,7 +39,7 @@ class MyFirstNode:
     FUNCTION = "process" # 执行功能的函数名
 
     # 节点在UI菜单中的分类
-    CATEGORY = "我的节点"
+    CATEGORY = "donyan"
 
     def process(self, text, value):
         """

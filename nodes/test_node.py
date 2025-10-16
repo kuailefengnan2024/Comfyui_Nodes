@@ -14,7 +14,7 @@ class SimpleTestNode:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("output_text",)
     FUNCTION = "run"
-    CATEGORY = "Test" # 使用一个独特的分类，方便查找
+    CATEGORY = "donyan" # 使用一个独特的分类，方便查找
 
     def run(self, text):
         # 在后台打印一条消息，方便在控制台确认

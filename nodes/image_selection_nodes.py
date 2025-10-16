@@ -20,7 +20,7 @@ class SelectBestImageByScore:
     RETURN_TYPES = ("IMAGE", "STRING")
     RETURN_NAMES = ("best_image", "best_scores")
     FUNCTION = "select_best"
-    CATEGORY = "Image Processing"
+    CATEGORY = "donyan"
 
     def select_best(self, images, scores_json):
         try:
