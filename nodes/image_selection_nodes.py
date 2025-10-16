@@ -23,11 +23,23 @@ class SelectBestImageByScore:
     CATEGORY = "donyan"
 
     def select_best(self, images, scores_json):
+        scores_list = []
+        # 尝试将输入作为标准的JSON列表解析
         try:
-            # 1. 解析JSON分数
             scores_list = json.loads(scores_json)
         except json.JSONDecodeError:
-            raise ValueError("输入的scores_json格式无效，请检查是否为合法的JSON。")
+            # 如果失败，则尝试按行解析 (JSON Lines格式)
+            lines = scores_json.strip().split('\n')
+            for line in lines:
+                line = line.strip()
+                if line:
+                    try:
+                        scores_list.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        raise ValueError(f"无法解析此行，请确保每行都是一个有效的JSON对象: {line}")
+
+        if not scores_list:
+            raise ValueError("解析后的分数列表为空。")
 
         num_images = images.shape[0]
         num_scores = len(scores_list)
